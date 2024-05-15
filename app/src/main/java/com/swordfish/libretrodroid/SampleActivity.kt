@@ -27,7 +27,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import com.android.libretrodroid.R
+import com.swordfish.libretrodroid.R
 import com.swordfish.radialgamepad.library.RadialGamePad
 import com.swordfish.radialgamepad.library.event.Event
 import kotlinx.coroutines.flow.merge
@@ -63,7 +63,7 @@ class SampleActivity : AppCompatActivity() {
              * The path to the ROM to load.
              * Example: /data/data/<package-id>/files/example.gba
              */
-            gameFilePath = "/data/data/<package-id>/files/example.gba"
+            gameFilePath = "/data/data/com.swordfish.libretrodroid/files/1001400.gba"
 
             /*
              * Direct ROM bytes to load.

@@ -1,0 +1,1 @@
+D:\WorkSpace\GitHub\AEmulatorKit_LibretroDroid\libretrodroid\build\intermediates\cxx\Debug\345u5z92\obj\arm64-v8a

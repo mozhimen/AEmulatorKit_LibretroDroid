@@ -30,6 +30,8 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.coroutineScope
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.basick.utilk.commons.IUtilK
 import com.swordfish.libretrodroid.KtUtils.awaitUninterruptibly
 import com.swordfish.libretrodroid.gamepad.GamepadsManager
 import java.util.*
@@ -42,10 +44,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
 
-class GLRetroView(
+class GLRetroView constructor(
     context: Context,
     private val data: GLRetroViewData
-) : AspectRatioGLSurfaceView(context), LifecycleObserver {
+) : AspectRatioGLSurfaceView(context), LifecycleObserver, IUtilK {
 
     var audioEnabled: Boolean by Delegates.observable(true) { _, _, value ->
         LibretroDroid.setAudioEnabled(value)
@@ -83,6 +85,7 @@ class GLRetroView(
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onCreate(lifecycleOwner: LifecycleOwner) = catchExceptions {
         lifecycle = lifecycleOwner.lifecycle
+        UtilKLogWrapper.w(TAG, "onCreate data $data")
         LibretroDroid.create(
             openGLESVersion,
             data.coreFilePath,
@@ -124,9 +127,11 @@ class GLRetroView(
             MotionEvent.ACTION_DOWN -> {
                 sendTouchEvent(event)
             }
+
             MotionEvent.ACTION_MOVE -> {
                 sendTouchEvent(event)
             }
+
             MotionEvent.ACTION_UP -> {
                 sendMotionEvent(MOTION_SOURCE_POINTER, -1f, -1f)
             }
@@ -145,7 +150,8 @@ class GLRetroView(
     fun serializeState(): ByteArray = runOnGLThread {
         LibretroDroid.serializeState()
     }
-    fun setCheat(index : Int, enable : Boolean, code : String) = runOnGLThread {
+
+    fun setCheat(index: Int, enable: Boolean, code: String) = runOnGLThread {
         LibretroDroid.setCheat(index, enable, code)
     }
 
@@ -201,7 +207,11 @@ class GLRetroView(
 
     private fun getGLESVersion(context: Context): Int {
         val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        return if (activityManager.deviceConfigurationInfo.reqGlEsVersion >= 0x30000) { 3 } else { 2 }
+        return if (activityManager.deviceConfigurationInfo.reqGlEsVersion >= 0x30000) {
+            3
+        } else {
+            2
+        }
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
@@ -391,6 +401,7 @@ class GLRetroView(
                     LibretroDroid.SHADER_UPSCALE_CUT_PARAM_LUMA_ADJUST_GAMMA to toParam(config.lumaAdjustGamma),
                 )
             )
+
             is ShaderConfig.CUT2 -> GLRetroShader(
                 LibretroDroid.SHADER_UPSCALE_CUT2,
                 buildParams(
@@ -439,8 +450,8 @@ class GLRetroView(
     }
 
     sealed class GLRetroEvents {
-        object FrameRendered: GLRetroEvents()
-        object SurfaceCreated: GLRetroEvents()
+        object FrameRendered : GLRetroEvents()
+        object SurfaceCreated : GLRetroEvents()
     }
 
     companion object {

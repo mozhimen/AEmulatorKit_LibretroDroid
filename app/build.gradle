@@ -1,13 +1,19 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-android'
+plugins{
+    id 'com.android.application'
+    id 'kotlin-android'
+}
 
 android {
-    compileSdkVersion 33
+    namespace "com.swordfish.libretrodroid"
+    compileSdk 34
+
     defaultConfig {
-        applicationId 'com.android.gl2jni'
-        minSdkVersion 21
-        targetSdkVersion 33
+        applicationId 'com.swordfish.libretrodroid'
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
     }
 
     buildTypes {
@@ -17,20 +23,30 @@ android {
                           'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
-    api project(path: ':libretrodroid')
-    implementation "androidx.core:core-ktx:1.9.0"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
-    implementation "androidx.appcompat:appcompat:1.5.1"
+    implementation project(path: ':libretrodroid')
+    implementation project(':SwiftKit:basick')
 
     implementation "androidx.constraintlayout:constraintlayout:2.1.4"
     implementation "com.github.swordfish90:radialgamepad:08d1dd95"
+
+    //test
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
-repositories {
-    mavenCentral()
-}
+//repositories {
+//    mavenCentral()
+//}
 

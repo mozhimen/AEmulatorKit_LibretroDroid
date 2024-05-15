@@ -32,4 +32,8 @@ class GLRetroViewData(context: Context) {
     var rumbleEventsEnabled: Boolean = true
     var preferLowLatencyAudio: Boolean = true
     var skipDuplicateFrames: Boolean = false
+
+    override fun toString(): String {
+        return "GLRetroViewData(coreFilePath=$coreFilePath, gameFilePath=$gameFilePath, gameFileBytes=${gameFileBytes?.contentToString()}, gameVirtualFiles=$gameVirtualFiles, systemDirectory='$systemDirectory', savesDirectory='$savesDirectory', variables=${variables.contentToString()}, saveRAMState=${saveRAMState?.contentToString()}, shader=$shader, rumbleEventsEnabled=$rumbleEventsEnabled, preferLowLatencyAudio=$preferLowLatencyAudio, skipDuplicateFrames=$skipDuplicateFrames)"
+    }
 }
