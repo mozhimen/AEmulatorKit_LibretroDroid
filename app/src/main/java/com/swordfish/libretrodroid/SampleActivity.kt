@@ -57,13 +57,13 @@ class SampleActivity : AppCompatActivity() {
              *
              * ABI can be arm64-v8a, armeabi-v7a, x86, or x86_64
              */
-            coreFilePath = "libmgba_libretro_android.so"
+            coreFilePath = this@SampleActivity.applicationInfo.nativeLibraryDir + "/libmgba_libretro_android.so"//"libmgba_libretro_android.so"
 
             /*
              * The path to the ROM to load.
              * Example: /data/data/<package-id>/files/example.gba
              */
-            gameFilePath = "/data/data/com.swordfish.libretrodroid/files/1001400.gba"
+            gameFilePath = this@SampleActivity.filesDir.absolutePath + "/1001400.gba"
 
             /*
              * Direct ROM bytes to load.
@@ -180,11 +180,11 @@ class SampleActivity : AppCompatActivity() {
     }
 
     private fun sendMotionEvent(
-            event: MotionEvent,
-            source: Int,
-            xAxis: Int,
-            yAxis: Int,
-            port: Int
+        event: MotionEvent,
+        source: Int,
+        xAxis: Int,
+        yAxis: Int,
+        port: Int
     ) {
         retroView.sendMotionEvent(
             source,
@@ -207,7 +207,7 @@ class SampleActivity : AppCompatActivity() {
 
     private fun initializeVirtualGamePad() {
         leftPad = RadialGamePad(VirtualGamePadConfigs.RETRO_PAD_LEFT, 8f, this)
-        rightPad = RadialGamePad(VirtualGamePadConfigs.RETRO_PAD_RIGHT, 8f,this)
+        rightPad = RadialGamePad(VirtualGamePadConfigs.RETRO_PAD_RIGHT, 8f, this)
 
         // We want the pad anchored to the bottom of the screen
         leftPad.gravityX = -1f

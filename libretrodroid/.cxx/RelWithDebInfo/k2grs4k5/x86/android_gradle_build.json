@@ -1,0 +1,55 @@
+{
+  "stringTable": {},
+  "buildFiles": [
+    "D:\\WorkSpace\\GitHub\\AEmulatorKit_LibretroDroid\\libretrodroid\\src\\main\\cpp\\CMakeLists.txt",
+    "D:\\WorkSpace\\GitHub\\AEmulatorKit_LibretroDroid\\libretrodroid\\src\\main\\cpp\\oboe\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "D:\\Library\\Android_SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+      "-C",
+      "D:\\WorkSpace\\GitHub\\AEmulatorKit_LibretroDroid\\libretrodroid\\.cxx\\RelWithDebInfo\\k2grs4k5\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "D:\\Library\\Android_SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+    "-C",
+    "D:\\WorkSpace\\GitHub\\AEmulatorKit_LibretroDroid\\libretrodroid\\.cxx\\RelWithDebInfo\\k2grs4k5\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "oboe-RelWithDebInfo-x86": {
+      "buildCommandComponents": [
+        "D:\\Library\\Android_SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\WorkSpace\\GitHub\\AEmulatorKit_LibretroDroid\\libretrodroid\\.cxx\\RelWithDebInfo\\k2grs4k5\\x86",
+        "oboe"
+      ],
+      "buildType": "release",
+      "abi": "x86",
+      "artifactName": "oboe",
+      "output": "D:\\WorkSpace\\GitHub\\AEmulatorKit_LibretroDroid\\libretrodroid\\.cxx\\RelWithDebInfo\\k2grs4k5\\x86\\oboe\\liboboe.a"
+    },
+    "libretrodroid-RelWithDebInfo-x86": {
+      "buildCommandComponents": [
+        "D:\\Library\\Android_SDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\WorkSpace\\GitHub\\AEmulatorKit_LibretroDroid\\libretrodroid\\.cxx\\RelWithDebInfo\\k2grs4k5\\x86",
+        "libretrodroid"
+      ],
+      "buildType": "release",
+      "abi": "x86",
+      "artifactName": "libretrodroid",
+      "output": "D:\\WorkSpace\\GitHub\\AEmulatorKit_LibretroDroid\\libretrodroid\\build\\intermediates\\cxx\\RelWithDebInfo\\k2grs4k5\\obj\\x86\\liblibretrodroid.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {},
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

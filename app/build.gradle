@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':libretrodroid')
+    implementation project(':libretrodroid')
     implementation project(':SwiftKit:basick')
 
     implementation "androidx.constraintlayout:constraintlayout:2.1.4"
