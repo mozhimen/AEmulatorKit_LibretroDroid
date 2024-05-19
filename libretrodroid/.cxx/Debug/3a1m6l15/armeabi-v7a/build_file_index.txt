@@ -1,2 +1,0 @@
-D:\WorkSpace\GitHub\AEmulatorKit_LibretroDroid\libretrodroid\src\main\cpp\CMakeLists.txt
-D:\WorkSpace\GitHub\AEmulatorKit_LibretroDroid\libretrodroid\src\main\cpp\oboe\CMakeLists.txt
