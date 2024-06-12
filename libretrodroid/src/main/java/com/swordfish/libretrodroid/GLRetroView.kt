@@ -202,7 +202,9 @@ class GLRetroView constructor(
     }
 
     fun getAvailableDisks() = runOnGLThread { LibretroDroid.availableDisks() }
+
     fun getCurrentDisk() = runOnGLThread { LibretroDroid.currentDisk() }
+
     fun changeDisk(index: Int) = runOnGLThread { LibretroDroid.changeDisk(index) }
 
     private fun getGLESVersion(context: Context): Int {
