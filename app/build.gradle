@@ -35,9 +35,7 @@ android {
 
 dependencies {
     implementation project(':libretrodroid')
-    implementation project(':SwiftKit:basick')
-
-    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+    implementation project(':ASwiftKit:basick')
     implementation "com.github.swordfish90:radialgamepad:08d1dd95"
 
     //test
